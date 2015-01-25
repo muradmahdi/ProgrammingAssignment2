@@ -5,7 +5,8 @@
 ## 4- getInv() 	: return value of the matrix inverse ‘x’
 
 
-## this function will create a matrix object that can cache its ## inverse
+## This function creates a special "matrix" object that 
+## can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
 	## Initialization of Matrix Inverse variable
@@ -58,3 +59,28 @@ cacheSolve <- function(x, ...) {
 	## return inverse value
 	inv
 }
+
+
+
+####################################
+##> x <- matrix (1:4, 2, 2)
+##> cx <- makeCacheMatrix(x)
+##> cx$get()
+##     [,1] [,2]
+##[1,]    1    3
+##[2,]    2    4
+##> cacheSolve(cx)
+##     [,1] [,2]
+##[1,]   -2  1.5
+##[2,]    1 -0.5
+##> cx$getInv()
+##     [,1] [,2]
+##[1,]   -2  1.5
+##[2,]    1 -0.5
+##> cx$get()%*%cx$getInv()
+##     [,1] [,2]
+##[1,]    1    0
+##[2,]    0    1
+##> 
+##
+####################################
